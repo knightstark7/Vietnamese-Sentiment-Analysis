@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/api/Dockerfile
+    ports:
+      - "8001:8001"
+
+  gui:
+    build:
+      context: .
+      dockerfile: src/gui/Dockerfile
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
